@@ -3,6 +3,7 @@ int my_atoi(char *);
 int main(int a, char *s[])
 {
 	char *x = (char *)s[1];
+	printf("%s\n", x);
 	printf("%d\n",my_atoi(s[1]));
 }
 
