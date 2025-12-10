@@ -11,8 +11,9 @@ int main()
 		for(j=0; j<3; j++)
 		{
 			c[i][j] = 0;
-			for(k=0; k<3; k++)
-				c[i][j] = c[i][j] + (a[j][k] * b[k][j]);
+			for(k=0; k<3; k++){
+				c[i][j] = c[i][j] + (a[i][k] * b[k][j]);
+			}
 		}
 	}
 
