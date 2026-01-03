@@ -10,7 +10,7 @@ struct st
 	struct st* next;
 }; 
 
-void add_end(struct st **);
+void add_middle(struct st **);
 void add_end(struct st **);
 void add_begin(struct st **);
 void reverse_data(struct st *);
@@ -31,14 +31,15 @@ int main()
 		//add_middle(&hptr);
 		//add_end(&hptr);
 		printf("do you want to add one more student(y/n)\n");
-		scanf("%c",&op);
+		scanf(" %c",&op);
 	}
 	while(op=='y' || op=='Y');
-
+	printf("\n\n");
 	printf("The original data\n");
 	print(hptr);
 	save(hptr);
-
+	
+	printf("\n\n");
 	printf("The modified data\n");
 	reverse_data(hptr);
 	//reverse_link(&hptr);
@@ -46,7 +47,7 @@ int main()
 	//delete_all(&hptr);
 	
 	print(hptr);
-	save(hptr);
+	printf("\n\n");
 
 }
 
@@ -112,12 +113,12 @@ void add_middle(struct st** ptr)
 void reverse_data(struct st *ptr)
 {
 	int cnt=count(ptr), i, j;
-	struct st **arr=(struct st**)malloc(cnt*sizeof(struct st*));
-	struct st *v=ptr;
+	struct st **arr=(struct st**)malloc(sizeof(struct st*));
+	//struct st *v=ptr;
 	for(i=0; i<cnt; i++)
 	{
-		arr[i]=v;
-		v=v->next;
+		arr[i]=ptr;
+		ptr=ptr->next;
 	}
 
 	int size=sizeof(struct st)-8;
@@ -136,7 +137,10 @@ int count(struct st* ptr)
 	int cnt;
 	struct st* temp=ptr;
 	while(temp!=0)
+	{
 		cnt++;
+		temp=temp->next;
+	}
 	return cnt;
 
 }
@@ -197,3 +201,24 @@ void delete_node(struct st **ptr, int n)
 	}
 }
 
+
+void print(struct st *ptr)
+{
+	struct st *temp=ptr;
+	while(temp!=0)
+	{
+		printf("%d %s %f\n",temp->roll, temp->name, temp->marks);
+		temp=temp->next;
+	}
+}
+
+void save(struct st *ptr)
+{
+	struct st *temp=ptr;
+	FILE *fp=fopen("single.txt","w");
+	while(temp!=0)
+	{
+		fprintf(fp, "%d %s %f\n", temp->roll, temp->name, temp->marks);
+		temp=temp->next;
+	}
+}
