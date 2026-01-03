@@ -10,7 +10,7 @@ int main()
 		printf("%d",(num>>i)&1);
 	}
 	
-	printf("\n");
+ 	printf("\n");
 	printf("Enter number of bits to rotate: ");
 	scanf("%d",&n);
 
