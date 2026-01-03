@@ -21,7 +21,7 @@ int main()
 	{
 		res = (num<<n) | (num>>(32-n));
 	}
-
+ 
 	else if(lr==2)
 	{
 		res = (num>>n) | (num<<(32-n));
