@@ -2,7 +2,7 @@
 #include<stdlib.h> 
 
 struct st
-{
+{ 
 	struct st *prev;
 	int roll;
 	char name[20];
