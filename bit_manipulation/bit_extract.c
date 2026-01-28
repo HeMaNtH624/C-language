@@ -1,6 +1,6 @@
 //Extract n number of bits from position p
 #include<stdio.h>
-int main()
+int main() 
 {
 	int num, pos, n, res;
 	printf("Enter the number: ");
