@@ -24,7 +24,7 @@ int main()
 		scanf(" %c",&op);
 	}
 	while(op=='y' || op=='Y');
-	print(hptr);
+	print(hptr); 
 }
 
 void add_begin(struct st **ptr)
