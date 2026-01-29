@@ -49,7 +49,7 @@ void add_begin(struct st **ptr)
 	}
 }
 
-
+ 
 void print(struct st *ptr)
 {
 	struct st *temp=ptr;
