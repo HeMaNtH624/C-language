@@ -5,11 +5,11 @@ int main()
 	printf("Enter the number: ");
 	scanf("%d",&num);
 	temp=num;
-	for(num=num; num!=0; num/=10)
+	for(; num!=0; num/=10)
 	{
 		pro=1;
 		digit=num%10;
-		for(digit=digit; digit!=0; digit--)
+		for(; digit!=0; digit--)
 		{
 			pro=pro*digit;
 		}
