@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
 		buf[i++] = ch;
 	}
 	buf[i] = '\0';
-
+	
 	fp = fopen(argv[1], "w");
 	i=0;
 	char *stop;
