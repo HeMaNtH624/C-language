@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 	
 	while((ch=fgetc(fp))!=EOF)
 	{
-		buf[i+] = ch;
+		buf[i++] = ch;
 	}
 	buf[i] = '\0';
 	
