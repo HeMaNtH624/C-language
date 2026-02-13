@@ -17,7 +17,7 @@ int main()
 {
 	char op;
 	struct st *hptr=0;
-	do
+	do 
 	{
 		add_begin(&hptr);
 		printf("Do you want to add one more data (y/n)");
