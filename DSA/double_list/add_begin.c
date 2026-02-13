@@ -48,7 +48,7 @@ void add_begin(struct st **ptr)
 		*ptr=temp;
 	}
 }
-
+ 
  
 void print(struct st *ptr)
 {
