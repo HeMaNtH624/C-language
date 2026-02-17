@@ -11,7 +11,7 @@ struct st
 
 void add_begin(struct st**);
 void print(struct st *);
-
+ 
 int main()
 {
 	char op;
