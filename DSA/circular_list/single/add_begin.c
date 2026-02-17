@@ -8,7 +8,7 @@ struct st
 	float marks;
 	struct st *next;
 };
-
+ 
 void add_begin(struct st**);
 void print(struct st *);
  
