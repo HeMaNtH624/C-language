@@ -2,7 +2,7 @@
 int main()
 {
 	int num,res, lr, n;
- 	printf("Enter the number: ");
+	printf("Enter the number: ");
 	scanf("%d",&num);
 
 	for(int i=31; i>=0; i--)
@@ -10,7 +10,7 @@ int main()
 		printf("%d",(num>>i)&1);
 	}
 	
- 	printf("\n");
+	printf("\n");
 	printf("Enter number of bits to rotate: ");
 	scanf("%d",&n);
 
@@ -21,7 +21,7 @@ int main()
 	{
 		res = (num<<n) | (num>>(32-n));
 	}
- 
+
 	else if(lr==2)
 	{
 		res = (num>>n) | (num<<(32-n));
