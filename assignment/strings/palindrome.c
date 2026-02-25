@@ -9,18 +9,14 @@ int main()
 
 	for(i=0; s[i]; i++);
 	int n = i-1;
-	int k=0;
 
 	for(j=0; j<=i/2; j++)
 	{
-		if(s[k]==s[n])
-		{
-			k++;
+		if(s[j]==s[n])
 			n--;
-		}
 	}
 	
-	if(k>=n)
+	if(j>=n)
 	printf("Palindrome\n");
 
 	else printf("Not a Palindrome\n");

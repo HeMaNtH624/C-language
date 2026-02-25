@@ -10,8 +10,9 @@ int main()
 	printf("Enter number of bytes to be copied: ");
 	scanf("%d",&n);
 	
+	char *p = my_strncpy(d,s,n);
+	
 	printf("original string: %s\n",s);
-	char *p = my_strncpy(s,d,n);
 	printf("copied destination string: %s\n",p);
 }
 
@@ -22,6 +23,6 @@ char * my_strncpy(char *d, char *s, int n)
 	{
 		d[i] = s[i];
 	}
-	d[n] = '\0';
+	d[i] = '\0';
 	return d;
 }
