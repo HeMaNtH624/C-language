@@ -54,20 +54,23 @@ int main(){
 	}
 
 	int rem(int a, int b){	
-		if(b==0){
-		 pf("Operation cannot be performed since the denominator is 0\n");
-		}
-		else{
-		int rem = a%b;
-		pf("Remainder for the given two numbers is: %d\n", rem);
+		if(b==0)
+			 pf("Operation cannot be performed since the denominator is 0\n");
+
+		else
+		{
+			int rem = a%b;
+			pf("Remainder for the given two numbers is: %d\n", rem);
 		}
 	}
 
 	float div(float a, float b){
-		if(b==0){
-		 pf("Operation cannot be performed since the denominator is 0\n");
-		}else{
-		float div = a/b;
-		printf("Division of given two numbers is: %.2f\n", div);
+		if(b==0)
+			 pf("Operation cannot be performed since the denominator is 0\n");
+
+		else
+		{
+			float div = a/b;
+			printf("Division of given two numbers is: %.2f\n", div);
 		}
 	}

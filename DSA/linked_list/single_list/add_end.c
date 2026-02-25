@@ -10,7 +10,7 @@ struct st
 	struct st* next;
 };
 
-void add_end(struct st**);
+void add_end(struct st* *);
 void print(struct st *);
 void save(struct st *);
 void reverse_link(struct st *, int);
@@ -93,7 +93,7 @@ void reverse_link(struct st* ptr, int c)
 
 	struct st temp;
 	int size = sizeof(struct st)-8;
-	for(i=0, j=c-1; i<c; i++, j--)
+	for(i=0, j=c-1; i<j; i++, j--)
 	{
 		memcpy(&temp, a[i], size);
 		memcpy(a[i], a[j], size);

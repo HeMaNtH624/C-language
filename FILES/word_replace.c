@@ -19,11 +19,11 @@ int main(int argc, char *argv[])
 		buf[i++] = ch;
 	}
 	buf[i] = '\0';
-	
+
 	fp = fopen(argv[1], "w");
 	i=0;
 	char *stop;
-	while((stop=strstr(buf+i, argv[2]))!=NULL) 
+	while((stop=strstr(buf+i, argv[2]))!=NULL)
 	{      	printf("%p\n",stop);   
 	 	for(j=stop-buf; i<j; i++)
 		{		
