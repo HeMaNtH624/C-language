@@ -2,6 +2,7 @@
 #include<stdlib.h>
 #include<string.h>
 #include<unistd.h>
+short int arr[100]={0};
 int id=1;
 struct st
 {
