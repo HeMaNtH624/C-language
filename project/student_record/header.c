@@ -119,6 +119,7 @@ void stud_del(struct st **ptr)
 
 	else if(op=='n'||op=='N')
 	{
+		arr[(temp->roll)-1]=0;
 		printf("\tEnter the name: ");
 		scanf(" %s", s);
 		while(temp!=0)
