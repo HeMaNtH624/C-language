@@ -93,7 +93,7 @@ void stud_del(struct st **ptr)
 	struct st* prev;
 	if(op=='r'||op=='R')
 	{
-		arr[(temp->roll)-1]=0;
+		
 		printf("\tEnter the roll number: ");
 		scanf("%d",&n);
 
@@ -101,6 +101,7 @@ void stud_del(struct st **ptr)
 		{
 		if(temp->roll==n)
 		{
+			arr[(temp->roll)-1]=0;
 			if(temp==*ptr)
 				*ptr=temp->next;
 			else
