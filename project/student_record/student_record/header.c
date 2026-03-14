@@ -21,8 +21,9 @@ void stud_del(struct st **);
 void stud_exit(struct st*);
 void del_all(struct st**);
 void stud_sort(struct st*);
+void stud_modify(struct st**, char);
 
-void stud_add(struct st **ptr)
+/*void stud_add(struct st **ptr)
 {
 	struct st* temp=(struct st*)malloc(sizeof(struct st));
 	for(int i=0; i<100; i++)
@@ -56,16 +57,16 @@ void stud_add(struct st **ptr)
 void stud_show(struct st* ptr)
 {
 	struct st* temp=ptr;
-	printf("|-------------------------------------------|\n");
-	printf("| %-10s | %-15s | %-10s |\n", "Roll", "Name", "Marks");	
-	printf("|-------------------------------------------|\n");
+	printf("\t|-------------------------------------------|\n");
+	printf("\t| %-10s | %-15s | %-10s |\n", "Roll", "Name", "Marks");	
+	printf("\t|-------------------------------------------|\n");
 	while(temp!=0)
 	{
-		printf("| %-10d | %-15s | %-10.2f |\n",temp->roll,temp->name,temp->marks);
+		printf("\t| %-10d | %-15s | %-10.2f |\n",temp->roll,temp->name,temp->marks);
 
 		temp=temp->next;	
 	}
-	printf("|-------------------------------------------|\n");
+	printf("\t|-------------------------------------------|\n");
 }
 
 
@@ -91,18 +92,22 @@ void stud_del(struct st **ptr)
 {
 	char op, s[20];
 	int n;
-	printf("\tr/R Enter roll to delete\n");
-	printf("\tn/N Enter name to delete\n");
-	printf("\t");
+	printf("\t|----------------------------------|\n");
+	printf("\t|   r/R Enter roll to delete       |\n");
+	printf("\t|   n/N Enter name to delete       |\n");
+	printf("\t|----------------------------------|\n");
+	printf("\t|----------------------------------|\n");
+	printf("\t|Enter your choice: ");
 	scanf(" %c",&op);
 	
 	struct st* temp=*ptr;
 	struct st* prev;
 	if(op=='r'||op=='R')
 	{
-		printf("\tEnter the roll number: ");
-		printf("\t");
+		printf("\t|--------------------------|\n");
+		printf("\t| Enter the roll number:  ");
 		scanf("%d",&n);
+		printf("\t|--------------------------|\n");
 
 		while(temp!=0)
 		{
@@ -148,12 +153,19 @@ void stud_del(struct st **ptr)
 			}
 		}
 	}
+	else
+	{
+		printf("\tInvalid option...\n");
+		return;
+	}
 }
 
 void stud_exit(struct st *ptr)
 {
-	printf("\ts/S save and exit\n");
-	printf("\te/E exit wthout saving\n");
+	printf("\t|----------------------------|\n");
+	printf("\t|  s/S save and exit         |\n");
+	printf("\t|  e/E exit wthout saving    |\n");
+	printf("\t|----------------------------|\n");
 	printf("\t");
 	char op;
 	scanf(" %c", &op);
@@ -215,8 +227,10 @@ void stud_sort(struct st* ptr)
 	int tempr;
 	float tempm;
 	char tempn[20], op;
-	printf("\tn/N sort by name\n");
-	printf("\tm/M sort by marks\n");
+	printf("\t|---------------------------|\n");
+	printf("\t|   n/N sort by name        |\n");
+	printf("\t|   m/M sort by marks       |\n");
+	printf("\t|---------------------------|\n");
 	printf("\t");
 	scanf(" %c",&op);
 	if(op=='n'||op=='N')
@@ -268,3 +282,223 @@ void stud_sort(struct st* ptr)
 		}
 	}
 }
+
+void stud_modify(struct st **ptr, char op)
+{
+
+	char dec;
+	int n;
+	float f;
+	char s[20];
+	struct st *temp=*ptr;
+	if(op=='0')
+	{
+		printf("\t|-------------------------------------------------|\n");
+		printf("\t|   which record to search for modification       |\n");
+		printf("\t|    r/R : to search a roll no                    |\n");
+		printf("\t|    n/N : to search a name                       |\n");
+		printf("\t|    m/M : marks based                            |\n");
+		printf("\t|-------------------------------------------------|\n");
+		printf("\t");
+		scanf(" %c",&op);
+	}
+
+	if(op=='r'||op=='R')
+	{
+		printf("\t----------------------------\n");
+		printf("\t   Enter the roll no: ");
+		scanf("%d",&n);
+		while(temp!=0)
+		{
+			if(temp->roll==n)
+			{
+				printf("\t-----------------------------------\n");
+				printf("\t  %d %s %f\n",temp->roll, temp->name, temp->marks);
+				printf("\n");
+				printf("\t|----------------------------|\n");
+				printf("\t|    n/N change name         |\n");
+				printf("\t|    p/P change percentage   |\n");
+				printf("\t|----------------------------|\n\t");
+				scanf(" %c",&dec);
+				if(dec=='n'||dec=='N')
+				{
+					printf("\t--------------------------------\n");
+					printf("\t   Enter the new name: ");
+					scanf(" %s", s);
+					strcpy(temp->name, s);
+					break;
+				}
+				else if(dec=='p'|| dec=='P')
+				{
+					printf("\t------------------------\n");
+					printf("\t   Enter new marks: ");
+					scanf("%f",&f);
+					temp->marks=f;
+					break;
+				}
+				else
+				{
+					printf("\t---INVALID INPUT---\n");
+					return;
+				}
+			}
+			temp=temp->next;
+		}	
+	}
+
+	else if(op=='n'||op=='N')
+	{
+		char cnt=0;
+		printf("\t-----------------------------\n");
+		printf("\t  Enter the name: ");
+		scanf(" %s",s);
+		while(temp!=0)
+		{
+			if((strcmp(s,temp->name))==0)
+			{
+				cnt++;
+			}
+			temp=temp->next;
+		}
+
+		if(cnt==0)
+		{
+			printf("\t Name not found\n");
+			return;
+		}
+
+		else if(cnt==1)
+		{
+			temp=*ptr;
+			while(temp!=0)
+			{
+				if((strcmp(temp->name, s))==0)
+				{
+					printf("\t-----------------------------------\n");
+					printf("\t  %d %s %f\n",temp->roll, temp->name, temp->marks);
+					printf("\n");
+					printf("\t|----------------------------|\n");
+					printf("\t|    n/N change name         |\n");
+					printf("\t|    p/P change percentage   |\n");
+					printf("\t|----------------------------|\n\t");
+					scanf(" %c",&dec);
+
+					if(dec=='n'||dec=='N')
+					{
+						printf("\t--------------------------------\n");
+						printf("\t   Enter the new name: ");
+						scanf(" %s", s);
+						strcpy(temp->name, s);
+						break;
+					}
+					else if(dec=='p'|| dec=='P')
+					{
+						printf("\t------------------------\n");
+						printf("\t   Enter new marks: ");
+						scanf("%f",&f);
+						temp->marks=f;
+						break;
+					}
+				}
+				temp=temp->next;
+			}
+		}
+
+		else if(cnt>1)
+		{
+			printf("\t Multiple names found Enter the roll\n");
+			printf("\t-----------------------------------\n");
+			temp=*ptr;
+			while(temp!=0)
+			{
+				if((strcmp(temp->name, s))==0)
+				{
+					printf("\t  %d %s %f\n",temp->roll, temp->name, temp->marks);
+				}
+				temp=temp->next;
+			}
+
+			stud_modify(ptr, 'r');
+		}
+		
+	}
+
+	else if(op=='m'||op=='M')
+	{
+
+		char cnt=0;
+		printf("\t-----------------------------\n");
+		printf("\t  Enter the percentage: ");
+		scanf("%f",&f);
+		while(temp!=0)
+		{
+			if(temp->marks==f)
+			{
+				cnt++;
+			}
+			temp=temp->next;
+		}
+
+		if(cnt==0)
+		{
+			printf("\t not found\n");
+			return;
+		}
+
+		else if(cnt==1)
+		{
+			temp=*ptr;
+			while(temp!=0)
+			{
+				if(temp->marks==f)
+				{
+					printf("\t-----------------------------------\n");
+					printf("\t  %d %s %f\n",temp->roll, temp->name, temp->marks);
+					printf("\n");
+					printf("\t|----------------------------|\n");
+
+					printf("\t|    n/N change name         |\n");
+					printf("\t|    p/P change percentage   |\n");
+					printf("\t|----------------------------|\n\t");
+					scanf(" %c",&dec);
+
+					if(dec=='n'||dec=='N')
+					{
+						printf("\t--------------------------------\n");
+						printf("\t   Enter the new name: ");
+						scanf(" %s", s);
+						strcpy(temp->name, s);
+						break;
+					}
+					else if(dec=='p'|| dec=='P')
+					{
+						printf("\t------------------------\n");
+						printf("\t   Enter new marks: ");
+						scanf("%f",&f);
+						temp->marks=f;
+						break;
+					}
+				}
+				temp=temp->next;
+			}
+		}
+
+		else if(cnt>1)
+		{
+			printf("\t Multiple students found!! Enter the roll\n");
+			printf("\t-----------------------------------\n");
+			temp=*ptr;
+			while(temp!=0)
+			{
+				if(temp->marks==f)
+				{
+					printf("\t  %d %s %f\n",temp->roll, temp->name, temp->marks);
+				}
+				temp=temp->next;
+			}
+
+			stud_modify(ptr, 'r');
+		}
+		
+	}
+}*/

@@ -1,13 +1,16 @@
+#include"header.c"
 void stud_show(struct st* ptr)
 {
         struct st* temp=ptr;
-        printf("|-----------------------------------------------------|\n");
-        printf("|  roll  |     name                       |  marks    |\n");
-        printf("|-----------------------------------------------------|\n");
+        printf("\t|-------------------------------------------|\n");
+        printf("\t| %-10s | %-15s | %-10s |\n", "Roll", "Name", "Marks");       
+        printf("\t|-------------------------------------------|\n");
         while(temp!=0)
         {
-        printf("|   %d    |     %s                       |  %.2f    |\n", temp->roll, temp->name, temp->marks);
-                temp=temp->next;
+                printf("\t| %-10d | %-15s | %-10.2f |\n",temp->roll,temp->name,temp->marks);
+
+                temp=temp->next;        
         }
-        printf("|-----------------------------------------------------|\n");
+        printf("\t|-------------------------------------------|\n");
 }
+

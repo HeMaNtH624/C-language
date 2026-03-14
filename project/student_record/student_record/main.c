@@ -50,9 +50,9 @@ int main()
 			case 's':
 			case 'S': stud_show(hptr);
 				  break;
-			/*case 'm':
-			case 'M': stud_modify();
-				  break;*/
+			case 'm':
+			case 'M': stud_modify(&hptr, '0');
+				  break;
 			case 'v':
 			case 'V': stud_save(hptr);
 				  break;

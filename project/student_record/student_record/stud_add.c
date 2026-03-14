@@ -1,9 +1,16 @@
-#include<stdlib.h>
+#include "header.c"
 void stud_add(struct st **ptr)
 {
         struct st* temp=(struct st*)malloc(sizeof(struct st));
-        temp->roll=id;
-        id++;
+        for(int i=0; i<100; i++)
+        {
+                if(arr[i]==0)
+                {
+                        temp->roll=i+1;
+                        arr[i]=i+1;
+                        break;
+                }
+        }
         printf("\tEnter name and marks of a student\n\t");
         scanf("%s%f",temp->name, &temp->marks);
 
