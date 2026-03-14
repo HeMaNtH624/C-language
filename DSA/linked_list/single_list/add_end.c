@@ -10,7 +10,7 @@ struct st
 	struct st* next;
 };
 
-void add_end(struct st* *);
+void add_end(struct st* *) 
 void print(struct st *);
 void save(struct st *);
 void reverse_link(struct st *, int);
