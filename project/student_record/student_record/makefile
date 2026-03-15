@@ -1,5 +1,5 @@
 outfile: main.o stud_add.o stud_del.o stud_mod.o stud_show.o stud_save.o header.o
-	 cc main.c stud_add.c stud_del.c stud_mod.c stud_show.c stud_save.c header.c
+	 cc main.c stud_add.c stud_del.c stud_mod.c stud_show.c stud_save.c header.c -o outfile
 
 main.o: main.c
 	cc -c main.c
