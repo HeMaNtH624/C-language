@@ -3,7 +3,7 @@
 
 struct st
 {
-	int roll; 
+	int roll;
 	char name[20];
 	float marks;
 	struct st *next;
